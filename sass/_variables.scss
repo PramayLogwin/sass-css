@@ -49,8 +49,6 @@ $map : ("regular" : 500, "medium":300);
     @content;
 }
 
-
-
 @mixin test4($value) {
     border-style: dotted;
     @content;

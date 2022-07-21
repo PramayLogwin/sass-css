@@ -1,15 +1,87 @@
-$demo : 2;
+// $demo : 5;
 
-p {
-    @if $demo <=5{
-        color: green;
+// p {
+//     @if $demo >=1 and $demo <=10 {
+//         color: green;
+//     }
+
+//     @else if $demo >=11 and $demo <=20 {
+//         color: orange;
+//     }
+
+//     @else {
+//         color: red;
+//     }
+// }
+
+// // using @mixin
+
+// @mixin condition($font) {
+//     font-size: $font + px;
+
+//     @if $font >=1 and $font <=10 {
+//         color: aquamarine;
+//     }
+
+//     @else if $font >=11 and $font <=20 {
+//         color: aqua;
+//     }
+
+//     @else {
+//         color: red;
+//     }
+// }
+
+// .condtion-check{
+//     @include condition(15);
+// }
+
+.container {
+    display: flex;
+
+
+
+@mixin box-color($value) {
+    @if $value ==dark {
+        background-color: black;
+        color: azure;
+        
     }
 
-    @else if $demo >=10 && $demo < 20 {
-        color: orange;
+    @else if $value ==light {
+        background-color: #fff;
+        color: black;
+        border: 1px solid black;
     }
+}
 
-    @else {
-        color: red;
+.box-container {
+    @include box-color(light);
+    margin: 50px;
+    padding: 25px;
+    width: 200px;
+    height: 150px;
+    overflow: scroll;
+}
+
+.box-container1{
+    @include box-color(dark);
+    margin: 50px;
+    padding: 25px;
+    width: 200px;
+    height: 150px;
+    overflow: scroll;
+}
+}
+
+
+// loop
+
+@for $i from 1 to 5{
+    .item-#{$i}{
+        background-color: azure;
+        width : 150px *  $i;
+        background-color: darken(aquamarine,$i * 10%);
+        padding: (5px * $i);
     }
 }
