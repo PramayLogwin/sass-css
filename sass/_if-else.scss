@@ -1,0 +1,15 @@
+$demo : 2;
+
+p {
+    @if $demo <=5{
+        color: green;
+    }
+
+    @else if $demo >=10 && $demo < 20 {
+        color: orange;
+    }
+
+    @else {
+        color: red;
+    }
+}

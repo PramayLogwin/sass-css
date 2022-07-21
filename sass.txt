@@ -1,0 +1,32 @@
+Variables
+Nesting
+Partials & import 
+Extends
+Operators( 
+
+Equality - [==(equal to) , !=(not equal to)]
+Relational - [< ,> ,<= ,>=]
+Boolean - [and , or ,not]
+String - [+ (concatenation)]
+Numeric - [+, - ,* ,/ ,%]
+)
+
+Interpolation
+
+Function - [
+    
+Numbers -(abs,ceil,floor,round,max,min,percentage,comparable,random,unit,unitless)
+String -(unqoute,to-upper-case,to-lower-case,str-length,str-index,str-insert,str-slice)
+Colors -(darken, lighten ,adjust-hue ,saturate ,desaturate ,mix ,transparentize)
+Lists -(length  ,nth ,set-nth ,join ,append ,zip ,index ,is-bracketed)
+Selectors - (Selector-nest , Selector-append ,Selector-replace ,is-superselector,simple-superselector ,simple-unify,Selector-extend) 
+Map - (map-get ,map-keys ,map-Values,map-merge,map-remove,map-has=key)
+Introspation -(variable-exists,global-variable-exists ,mixin-exists ,function-exists,type-of,inspect)
+
+]
+
+Content-directive
+
+Media
+
+If/else

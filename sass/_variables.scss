@@ -1,0 +1,64 @@
+//variables 
+$text-color: black;
+$font-size : 15px;
+
+//list function 
+$list1 : 10px,
+20px,
+30px;
+$list2 : 40px 50px 60px;
+
+//selector function
+
+$selector : is-superselector("a", "a.xyz");
+
+//map function 
+
+$font-weight: (
+    "regular":400,
+    "medium":500
+);
+$light-weight: (
+    "light-regular":300,
+    "light-medium":200
+);
+
+$merge : map-merge($font-weight, $light-weight);
+
+$remove : map-remove($font-weight, "light-regular");
+
+
+//Introspation
+
+$num : 10px;
+$char : "Sass Css";
+$list : 10px 20px 30px;
+$map : ("regular" : 500, "medium":300);
+
+@mixin font-family {
+    font-family: 'Courier New', Courier, monospace;
+}
+
+@function font-size() {}
+
+
+//content-directive
+
+@mixin border-style ($value) {
+    border-style: dotted;
+    @content;
+}
+
+
+
+@mixin test4($value) {
+    border-style: dotted;
+    @content;
+}
+
+
+@mixin  media($width) {
+    @media  screen and (max-width : $width) {
+        @content;            
+    }
+}

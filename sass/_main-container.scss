@@ -1,0 +1,99 @@
+@mixin cursor() {
+    cursor: pointer;
+}
+
+@mixin border() {
+    border: 1px solid black;
+}
+
+@mixin space($value) {
+    padding: $value;
+    height: auto;
+    overflow: scroll;
+}
+
+.main-container {
+    margin-top: 20px;
+    display: grid;
+    grid-template-columns: repeat(3, 430px);
+    grid-template-rows: 200px;
+    grid-gap: 15px;
+}
+
+.firstpara {
+    background-color: darken(aliceblue, 50);
+    color: $text-color;
+    @include cursor();
+    @include border();
+    @include space(15px);
+    font-size: $font-size;
+}
+
+.secondpara {
+    //mix color function
+    background-color: mix(cornsilk, red, 70);
+    @extend .firstpara;
+
+}
+
+.thirdpara {
+    background-color: adjust-hue(rgb(119, 153, 218), 20);
+    font-family: unquote("arial");
+    @extend .firstpara;
+    // margin: abs(-15px);
+}
+
+// list function
+.test {
+    padding: is-bracketed($list2);
+}
+
+//selector function
+
+#{$selector} {
+    width: 50px;
+    height: 50px;
+}
+
+//map function 
+.test1 {
+    font-weight: map-values($remove);
+}
+
+//Introspation
+.test2 {
+    margin: type-of($num);
+}
+
+//content-directive
+
+.test3 {
+    @include border-style(5px) {
+        border-radius: 10px;
+    }
+}
+
+.block {
+    @include test4(5px) {
+        color: aqua;
+        background-color: antiquewhite;
+    }
+}
+
+@include media(2000px) {
+    body {
+        background: #fff ;
+    }
+}
+
+@include media(1000px) {
+    body {
+        background: red;
+    }
+}
+
+@include media(500px) {
+    body {
+        background: burlywood;
+    }
+}
