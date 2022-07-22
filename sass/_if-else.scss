@@ -41,47 +41,113 @@
 
 
 
-@mixin box-color($value) {
-    @if $value ==dark {
-        background-color: black;
-        color: azure;
-        
+    @mixin box-color($value) {
+        @if $value ==dark {
+            background-color: black;
+            color: azure;
+
+        }
+
+        @else if $value ==light {
+            background-color: #fff;
+            color: black;
+            border: 1px solid black;
+        }
     }
 
-    @else if $value ==light {
-        background-color: #fff;
-        color: black;
-        border: 1px solid black;
+    .box-container {
+        @include box-color(light);
+        margin: 50px;
+        padding: 25px;
+        width: 200px;
+        height: 150px;
+        overflow: scroll;
     }
-}
 
-.box-container {
-    @include box-color(light);
-    margin: 50px;
-    padding: 25px;
-    width: 200px;
-    height: 150px;
-    overflow: scroll;
-}
-
-.box-container1{
-    @include box-color(dark);
-    margin: 50px;
-    padding: 25px;
-    width: 200px;
-    height: 150px;
-    overflow: scroll;
-}
+    .box-container1 {
+        @include box-color(dark);
+        margin: 50px;
+        padding: 25px;
+        width: 200px;
+        height: 150px;
+        overflow: scroll;
+    }
 }
 
 
 // loop
+// for
 
-@for $i from 1 to 5{
-    .item-#{$i}{
+@for $i from 1 to 5 {
+    .item-#{$i} {
         background-color: azure;
-        width : 150px *  $i;
-        background-color: darken(aquamarine,$i * 10%);
+        width: 150px * $i;
+        background-color: darken(aquamarine, $i * 10%);
         padding: (5px * $i);
     }
+}
+
+@for $a from 1 to 5 {
+    .for-loop-#{$a} {
+        overflow: scroll;
+    }
+}
+
+//Each loop
+
+$bgcolors: (
+    "pink": #DC51AC,
+    "red": #D64651,
+    "orange": #E55937,
+);
+
+@each $bgcolors,
+$i in $bgcolors {
+
+    .#{$bgcolors} {
+        background-color: $i;
+    }
+
+}
+
+//multidimensional list
+
+$list : ((normal, bold, 15px, #DC51AC), (stylish, italic, 30px, #D64651), (abc, bold, 35px, #E55937));
+
+@each $name,
+$style,
+$size,
+$color in $list {
+
+    .#{$name} {
+        font-size: $size;
+        font-style: $style;
+        background-color: $color;
+    }
+}
+
+//giving key values in list item 
+
+$map : (normal : 12px, bold : 5px);
+
+@each $name ,
+$font-size in $map {
+    .#{$name} {
+        font-size: $font-size;
+        font-weight: $name;
+    }
+}
+
+// while loop
+
+$margin : 10;
+$padding : 10;
+
+@while $margin <=30 {
+    .margin-#{$margin} {
+        margin: 1px * $margin;
+        padding: 1px * $padding;
+    }
+    $margin : $margin +10;
+    $padding : $padding + 20;
 }

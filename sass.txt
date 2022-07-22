@@ -31,5 +31,8 @@ Media
 
 If/else
 
+Loops : -
 For
+Each
+While
 
